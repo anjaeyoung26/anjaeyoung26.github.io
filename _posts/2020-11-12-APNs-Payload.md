@@ -27,7 +27,7 @@ APNs에서 푸시를 요청할 때, 푸시에 관련된 내용을 담는 곳입�
 
 <br/>
 
-i. 크기
+## 1-1 크기
 
 ∙ Token-based APNs provider API
 
@@ -43,7 +43,7 @@ Legacy APNs binary interface는 APNs의 Certificate-based 방식을 뜻하며, 2
 
 <br/>
 
-ii. JSON 형태입니다.
+## 1-2 JSON 형태입니다.
 
 <br/>
 <br/>
