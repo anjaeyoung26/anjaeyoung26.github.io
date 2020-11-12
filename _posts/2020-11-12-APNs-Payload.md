@@ -16,8 +16,6 @@ Payload의 구조를 중점적으로 포스팅 하겠습니다.
 
 ### 1. 특징
 
-<br/>
-
 ### 2. 구조
 
 <br/>
@@ -95,7 +93,7 @@ loc-key 와 loc-args는 프로젝트의 Localizable.strings 파일의 loc-key에
 
 가변 문자열이 loc-args의 값으로 대체되어 "ARGS1 and ARGS2" 라는 문자열이 완성됩니다.
 
-custom은 푸시를 수신한 곳에서 사용할 수 있는 사용자 정의 데이터 입니다.
+custom은 푸시를 수신한 곳에서 사용할 수 있는 사용자 정의 데이터 입니다. custom 이라는 이름은 임의의 값으로 정해진 형식이 아닙니다.
 
 ~~~swift
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
