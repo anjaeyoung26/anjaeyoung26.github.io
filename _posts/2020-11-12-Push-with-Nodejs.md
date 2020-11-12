@@ -141,6 +141,28 @@ deviceToken : 현재 디바이스의 토큰 입니다. 디바이스 토큰을 �
 
 registerForRemoteNotification 메소드를 호출함으로써, 정상적으로 등록이 됬다면, didRegisterForRemoteNotificationsWithDeviceToken 메소드가 호출되어 디바이스 토큰을 전달받습니다.
 
+Rich Push Notification, Background Modes, Actionable Notification를 사용하고 싶다면 아래와 같이 값을 설정합니다.
+
+~~~swift
+notification.mutableContent = 1;
+notification.contentAvailable = 1;
+notification.category = "YOUR CATEGORY";
+~~~
+
+alert에 loc-key, loc-args 혹은 title, body를 설정하고 싶다면 아래와 같이 값을 설정합니다.
+
+~~~swift
+notification.alert = {
+	"title": "Title",
+	"body": "Body"
+};
+
+notification.alert = {
+    "loc-key" : "LOCALIZED KEY",
+    "loc-args": [ "ARGS1", "ARGS2" ]
+};
+~~~
+
 <br/>
 
 각 항목을 입력한 뒤 터미널에서(apns 폴더에 접근한 상태여야 합니다.) 아래와 같이 입력합니다.
