@@ -84,8 +84,6 @@ APNs 서버에 위 그림과 같은 형태의 푸시를 요청하면 푸시를 �
 
 ## Notification Service Extension
 
-<br/>
-
 ### (1) Xcode 상단 메뉴의 [File] - [New] - [Target] - [Notification Service Extension] 추가
 
 ![serviceextension](https://user-images.githubusercontent.com/61190690/98901793-b65cf700-24f7-11eb-9dba-d8449c26924e.png)
@@ -122,8 +120,6 @@ NotificationService.m 파일에서 두 가지 메소드를 확인할 수 있습�
 <br/>
 
 ## Notification Content Extension
-
-<br/>
 
 ### (1) Xcode 상단 메뉴의 [File] - [New] - [Target] - [Notification Content Extension] 추가
 
