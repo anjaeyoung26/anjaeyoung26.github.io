@@ -138,7 +138,7 @@ JavaScript에서 alert 하는 경우, 알림창의 제목에 해당 페이지의
 
 ![javaalert1](https://user-images.githubusercontent.com/61190690/99223519-fdb0f380-2827-11eb-86c7-047381a57d2a.png)
 
-이를 방지하고자 UIWebView의 Delegate의 메소드를 오버라이드 합니다.
+이를 방지하고자 UIWebView의 카테고리를 생성합니다.
 
 아래 메소드는 JavaScript로부터 Alert panel(예, 아니오와 같은 사용자의 액션에 따라 처리하는 알림이 아닌, 단순한 메시지 전달의 목적으로 표시하는 알림을 말합니다.)이 표시될 때 호출됩니다.
 
