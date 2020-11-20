@@ -4,6 +4,9 @@ category :
     - Push
 tag :
     - APNs
+toc: true
+toc_sticky: true
+toc_label: "목차"
 ---
 
 iOS 10에 탄생한 Rich Push Notification 입니다. 푸시에 담겨져 있는 URL을 통해 다운로드 하거나, 푸시를 3D Touch를 통해 상세하게 볼 수 있는 화면을 커스터마이징 할 수 있습니다. 이번 포스팅은 Rich Push Notification의 특징과 동작 과정 및 등록 과정에 관한 글입니다.

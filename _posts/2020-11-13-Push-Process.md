@@ -4,6 +4,9 @@ category :
     - Push
 tag :
     - APNs
+toc: true
+toc_sticky: true
+toc_label: "목차"
 ---
 
 iOS에서 이루어지는 푸시에 대한 과정에 관한 글입니다. 해당 과정들은 모두 `AppDelegate` 내에서 이루어집니다.
