@@ -21,13 +21,13 @@ Rich Push Notification은 App Extension의 한 종류로, 별도의 어플리케
 
 <br/>
 
-## Notification Service Extension
+## 1-1 Notification Service Extension
 
 화면에 표시되기 전 추가적으로 해야할 동작을 구현합니다. 주 용도는 푸시에 담긴 URL을 통해 request를 보내서 다운로드하여 표시하는 것입니다. 하지만 한 가지 제약사항이 있습니다. 추가적인 동작이 `30초 안에` 마무리되어야 합니다. 30초 안에 끝나지 않아도 크래쉬가 발생하지 않고 별도의 메소드가 호출됩니다.
 
 <br/>
 
-## Notification Content Extension
+## 1-2 Notification Content Extension
 
 푸시를 3D Touch를 통해 상세히 보여지는 화면을 커스터마이징 합니다.
 
@@ -74,9 +74,9 @@ APNs 서버에 위 그림과 같은 형태의 푸시를 요청하면 푸시를 �
 
 <br/>
 
-## Notification Service Extension
+## 3-1 Notification Service Extension
 
-### (1) Xcode 상단 메뉴의 [File] - [New] - [Target] - [Notification Service Extension] 추가
+(1) Xcode 상단 메뉴의 [File] - [New] - [Target] - [Notification Service Extension] 추가
 
 ![serviceextension](https://user-images.githubusercontent.com/61190690/98901793-b65cf700-24f7-11eb-9dba-d8449c26924e.png)
 
@@ -95,7 +95,7 @@ NotificationService.m 파일에서 두 가지 메소드를 확인할 수 있습�
 추가적인 동작은 didReceiveNotificationRequest 메소드에서 구현하며, 구현한 동작의 소요시간이 30초가 경과했을 때 serviceExtensionTimeWillExpire 메소드가 호출됩니다.
 
 
-### (2) NotificationService를 Build Target으로 하여 빌드 진행
+(2) NotificationService를 Build Target으로 하여 빌드 진행
 
 ![serviceextension3](https://user-images.githubusercontent.com/61190690/98902529-3b94db80-24f9-11eb-8b17-47f53b381d0b.png)
 
@@ -105,15 +105,15 @@ NotificationService.m 파일에서 두 가지 메소드를 확인할 수 있습�
 
 <br/>
 
-### (3) 프로젝트의 [General] - [Frameworks, Libraries and Embedded Content]에 NotificationService.appex 파일을 추가합니다.
+(3) 프로젝트의 [General] - [Frameworks, Libraries and Embedded Content]에 NotificationService.appex 파일을 추가합니다.
 
 ![serviceextension4](https://user-images.githubusercontent.com/61190690/98902725-9c241880-24f9-11eb-94cc-baa7aa23b7d1.png)
 
 <br/>
 
-## Notification Content Extension
+## 3-2 Notification Content Extension
 
-### (1) Xcode 상단 메뉴의 [File] - [New] - [Target] - [Notification Content Extension] 추가
+(1) Xcode 상단 메뉴의 [File] - [New] - [Target] - [Notification Content Extension] 추가
 
 ![contentextension](https://user-images.githubusercontent.com/61190690/98901781-ae04bc00-24f7-11eb-96c6-2c1adbd2db11.png)
 
@@ -144,7 +144,7 @@ viewDidLoad는 일반적인 뷰 컨트롤러의 라이프 사이클 메소드이
 
 <br/>
 
-### (2) NotificationContent를 Build Target으로 하여 빌드 진행
+(2) NotificationContent를 Build Target으로 하여 빌드 진행
 
 ![contentextension3](https://user-images.githubusercontent.com/61190690/98902840-cbd32080-24f9-11eb-91f7-eff6e05c52fe.png)
 
@@ -154,13 +154,15 @@ viewDidLoad는 일반적인 뷰 컨트롤러의 라이프 사이클 메소드이
 
 <br/>
 
-### (3) 프로젝트의 [General] - [Frameworks, Libraries and Embedded Content]에 NotificationContent.appex 파일을 추가합니다.
+(3) 프로젝트의 [General] - [Frameworks, Libraries and Embedded Content]에 NotificationContent.appex 파일을 추가합니다.
 
 ![contentextension4](https://user-images.githubusercontent.com/61190690/98903350-bf9b9300-24fa-11eb-84a6-c8e95ee1d1f0.png)
 
 <br/>
 
-## 만약 푸시가 정상적으로 수신이 안된디면 plist에 아래와 같은 값을 추가합니다.
+# 4. 푸시가 정상적으로 수신이 안될 때
+
+plist에 아래와 같은 값을 추가합니다.
 
 ~~~
 <key>NSAppTransportSecurity</key>

@@ -36,7 +36,9 @@ Legacy APNs binary interface는 APNs의 Certificate-based 방식을 뜻하며, 2
 
 <br/>
 
-## 1-2 JSON 형태입니다.
+## 1-2 형태
+
+APNs의 Payload는 JSON 형태입니다.
 
 <br/>
 <br/>
