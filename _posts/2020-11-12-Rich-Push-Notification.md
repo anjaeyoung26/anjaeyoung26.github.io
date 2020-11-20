@@ -13,17 +13,6 @@ iOS 10에 탄생한 Rich Push Notification 입니다. 푸시에 담겨져 있는
 
 <br/>
 
-# 목차
-
-### 1. 특징
-
-### 2. 동작 과정
-
-### 3. 등록 과정
-
-<br/>
-<br/>
-
 # 1. 특징
 
 Rich Push Notification은 App Extension의 한 종류로, 별도의 어플리케이션으로 취급하기 때문에, Rich Push Notification만의 Bundle Identifier를 소유합니다.
