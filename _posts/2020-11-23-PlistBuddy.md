@@ -9,7 +9,7 @@ toc_sticky: true
 toc_label: "목차"
 ---
 
-PlistBuddy란 무엇이고, 이를 통해 빌드업 자동화를 할 수 있는 방법에 관한 글입니다.
+PlistBuddy란 무엇이고, 이를 통해 빌드업 자동화를 할 수 있는 방법에 관한 글입니다. [참고](https://medium.com/@marksiu/what-is-plistbuddy-76cb4f0c262d)
 
 <br/>
 
