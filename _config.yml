@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "default", "dark", "dirt"
 
 # Site Settings
 locale                   : "ko_KR"
-title                    : "아직 볼 게 없어요.."
+title                    : "2020-11-09 시작"
 title_separator          : "-"
-subtitle                 : "2020-11-09 시작" # site tagline that appears below site title in masthead
+subtitle                 : "" # site tagline that appears below site title in masthead
 name                     : "안재영"
-description              : "첫 블로그"
+description              : "블로그"
 url                      : "https://anjaeyoung26.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "anjaeyoung26/anjaeyoung26.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "anjaeyoung"
   avatar           : "/assets/images/bio_photo.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "무슨 글을 쓸까"
+  bio              : "Swift, Objective-C"
   location         : "Geumcheon-gu, Seoul"
   email            :
   links:
