@@ -125,7 +125,16 @@ completionHandler로 Presentation 옵션을 설정하여 화면에 표시합니�
 
 <br/>
 
-∙ Silent 푸시를 수신하면 아래와 같은 메소드가 호출됩니다.
+∙ Silent 푸시를 수신하면 아래와 같은 두 개의 메소드가 호출됩니다.
+
+~~~swift
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
+{
+    NSString * customMessage = [notification.request.content.userInfo objectForKey:@"Custom Message"];
+
+    completionHandler(UNNotificationPresentationOptionAlert);
+}
+~~~
 
 ~~~swift
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler

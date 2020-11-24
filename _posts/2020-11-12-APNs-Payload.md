@@ -102,6 +102,17 @@ custom은 푸시를 수신한 곳에서 사용할 수 있는 사용자 정의 �
 
 위와 같이 푸시를 수신했을 때 호출되는 메소드를 통해 전달된 사용자 정의 데이터를 추출할 수 있습니다.
 
+iv. content-available를 통해 `Silent Push`를 사용할 수 있습니다.
+
+사용자에게 알리지 않고, 어플리케이션을 백 그라운드 상태에서 깨워서 application:didReceiveRemoteNotification:fetchCompletionHandler를 호출하여 콘텐츠 다운로드 등을 수행합니다.
+
+Silent Push를 사용하기 위해서는 Payload의 aps에 alert, sound, badge가 포함되지 않아야 합니다.
+만약 포함될 경우, 비정상적으로 처리됩니다.
+
+최대 30초의 작업 시간이 주어지며, 작업을 마친 후 Handler가 제 시간 내에 호출되지 않으면 어플리케이션이 일시 중지 됩니다. [참고](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app?language=objc)
+
+<br/>
+
 이외에도 Actionable Notification을 구현하기 위해 category를 담을 수 있지만, 관련된 내용은 추후에 포스팅 하겠습니다.
 
 끝
