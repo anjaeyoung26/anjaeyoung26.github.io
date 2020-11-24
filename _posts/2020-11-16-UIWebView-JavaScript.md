@@ -135,6 +135,35 @@ JavaScript에 구현되어 있는 myFunction 함수를 호출합니다. 괄호�
 
 <br/>
 
+### 5-3 JavaScript 파일 내용
+
+JavaScript 파일 내용입니다. 웹에 대한 지식이 없어서 구글 검색을 통해 Visual Studio Code로 간단하게 만들었습니다.
+
+~~~html
+<html>
+    <head>
+        <title> button </title>
+        <meta charset = "utf-8">
+
+        <script>
+            function javascriptFunc(message) {
+                alert(message);
+            }
+
+            function callNativeFunc() {
+                window.location = "javascriptCall://fromJavaScript:callNativeFunc";
+            }
+        </script>
+    </head>
+    <body>
+    <form action="a.html">
+            <input type="button" name="button" value="callNativeFunc" onclick="callNativeFunc()"> <!-- onclick="alert('ALERT')"> -->
+    </body>
+</html>
+~~~
+
+<br/>
+
 ## 6. 웹 뷰 내에서 Alert 커스터마이징
 
 JavaScript에서 alert 하는 경우, 알림창의 제목에 해당 페이지의 주소가 표시됩니다.
