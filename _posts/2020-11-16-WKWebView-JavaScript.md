@@ -84,7 +84,7 @@ Info.plist에 아래와 같은 값을 추가합니다.
 ## 5. Delegate 위임
 
 ~~~swift
-@property (nonatomic, retain) IBOutlet WKWebView *webView;
+@property (nonatomic, strong) WKWebVIew * wkWebView;
 
 WKWebViewConfiguration * config = [[WKWebViewConfiguration alloc] init];
 WKUserContentController * contentController = [[WKUserContentController alloc] init];
@@ -93,22 +93,24 @@ WKUserContentController * contentController = [[WKUserContentController alloc] i
 
 [config setUserContentController:contentController];
 
-[webView setUIDelegate:self];
-[webView setNavigationDelegate:self];
+[self.webView setUIDelegate:self];
+[self.webView setNavigationDelegate:self];
 ~~~
 
 <br/>
 
 ## 6. 뷰 추가
 
-웹 뷰를 서브 뷰로 추가합니다. xib 혹은 스토리보드에서도 인터페이스 요소로 제공됩니다.
+스토리보드 혹은 xib 파일에 컨테이너 뷰를 추가한 뒤, 컨테이너 뷰의 프레임에 맞춰서 웹 뷰를 추가합니다. 본인이 주로 사용하는 방식입니다.
 
 ~~~swift
-CGRect frame = [[UIScreen mainScreen] bounds];
+@property (nonatomic, strong) IBOutlet UIView * containerView;
 
-webView = [[WKWebView alloc] initWithFrame:frame configuration:config];
+CGRect frame = [self.containerView bounds];
 
-[[self view] addSubview:webView];
+self.webView = [[WKWebView alloc] initWithFrame:frame configuration:config];
+
+[self.containerView addSubview:self.webView];
 ~~~
 
 <br/>
@@ -117,17 +119,18 @@ webView = [[WKWebView alloc] initWithFrame:frame configuration:config];
 
 ### 7-1 Web -> Native
 
-아래의 메소드를 통해 Javascript에서 Native를 호출합니다.
+아래의 메소드를 통해 Javascript에서 Native를 호출합니다.   
+ WKUserContentController 에서 설정한 메시지 핸들러를 통해서 호출합니다.
 
 ~~~css
-window.webkit.messageHandlers.myFunctionName1.postMessage("parameter1");
+window.webkit.messageHandlers.myFunctionName.postMessage("parameter1");
 ~~~
 
 ~~~swift
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
     // [message body]는 id(Any in Swift) 타입입니다. 딕셔너리 혹은 배열, 문자열 등 다양한 값이 전달될 수 있습니다.
-    if ([[message name] isEqualToString:@"myFunctionName1"])
+    if ([[message name] isEqualToString:@"myFunctionName"])
     {
         NSString * strFunctionName = [[message body] stringValue]; // parameter1
     }
@@ -139,7 +142,7 @@ window.webkit.messageHandlers.myFunctionName1.postMessage("parameter1");
 아래와 같이 두 개의 파라미터를 포함하여 Native를 호출할 수 있습니다.
 
 ~~~css
-window.webkit.messageHandlers.myFuctionName2.postMessage(firstParam:'param', secondParam:'param');
+window.webkit.messageHandlers.myFuctionName.postMessage(firstParam:'param', secondParam:'param');
 ~~~
 
 Native에서는 딕셔너리 형태로 형변환하여 사용합니다.
@@ -148,7 +151,7 @@ Native에서는 딕셔너리 형태로 형변환하여 사용합니다.
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message
 {
     // [message body]는 id(Any in Swift) 타입입니다. 딕셔너리 혹은 배열, 문자열 등 다양한 값이 전달될 수 있습니다.
-    if ([[message name] isEqualToString:@"myFunctionName2"])
+    if ([[message name] isEqualToString:@"myFunctionName"])
     {
         NSDictionary * dictionary = (NSDictionary *) [message body];
 
@@ -180,6 +183,35 @@ function myFunction(firstMsg, secondMsg) {
 
 <br/>
 
+### 7-3 JavaScript 파일 내용
+
+JavaScript 파일 내용입니다. 웹에 대한 지식이 없어서 구글 검색을 통해 Visual Studio Code로 간단하게 만들었습니다.
+
+~~~html
+<html>
+    <head>
+        <title> button </title>
+        <meta charset = "utf-8">
+
+        <script>
+            function javascriptFunc(message) {
+                alert(message);
+            }
+
+            function callNativeFunc() {
+                window.webkit.messageHandlers.jscall.postMessage('from javascript');
+            }
+        </script>
+    </head>
+    <body>
+    <form action="a.html">
+            <input type="button" name="button" value="callNativeFunc" onclick="callNativeFunc()">
+    </body>
+</html>
+~~~
+
+<br/>
+
 ## 8. Script 삽입
 
 WKWebView에는 UIWebView와 차별화된 최상단 혹은 최하단에 스크립트를 삽입하는 기능이 있습니다.
@@ -196,3 +228,15 @@ WKUserScript * script = [[WKUserScript alloc] initWithSource:@"alert('load')"
 - forMainFrameOnly : 모든 프레임에 적용할 것인지 설정합니다.
 
 추가 시 웹 뷰가 load 되었을 때, 삽입한 스크립트가 실행됩니다.
+
+<br/>
+
+## 9. 웹 뷰 내에서 Alert 커스터마이징
+
+UIWebView와 마찬가지로 WKWebView 에서도 Alert, Confirm 화면을 아래의 두 메소드를 통해 커스터마이징할 수 있습니다.
+
+~~~swift
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler
+
+- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler
+~~~
