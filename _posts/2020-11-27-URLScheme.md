@@ -122,7 +122,7 @@ UIApplication.sharedApplication.open(url, options:[:], completionHandler:nil)
 
 "demo-server://name=jaeyoungan" 과 같은 URL로 추가적인 데이터를 전달할 수 있습니다.
 
-Server는 전달된 데이터를 AppDelegate의 application:didFinishLaunchingWithOptions 메소드에서 추출할 수 있습니다.
+Server는 Client로부터 호출되어 실행될 때 전달된 데이터를 AppDelegate의 application:didFinishLaunchingWithOptions 메소드에서 추출할 수 있습니다.
 
 ~~~swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
