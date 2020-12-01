@@ -34,9 +34,20 @@ UIApplication.sharedApplication.open(url, options:[:], completionHandler:nil)
 
 ### 2-1 종류
 
-<img width="673" alt="urlscheme1" src="https://user-images.githubusercontent.com/61190690/100411573-86941e80-30b5-11eb-89aa-9cadc5409c77.png">
+|URL|내용|
+|------|---|
+| http://웹사이트 URL, https://웹사이트 URL | Safari 앱을 통해 웹사이트 표시 |
+| mailto:이메일 주소 | 메일 앱을 통해 새로운 메일 작성 화면 표시 |
+| tel:전화번호 | 전화 연결 |
+| sms:전화번호 | 메시지 앱을 통해 새로운 메시지 입력 화면 표시 |
+| facetime://FaceTime ID | FaceTime 연결 |
+| facetime-audio://FaceTime ID | FaceTime Audio 연결 |
+| http://maps.apple.com/?q=검색어, http://maps.apple.com/?ll=위도, 경도 | 지도 앱을 통해 지역 표시 |
+| itms://itunes.apple.com/us/app/apple-store/앱 ID | App Store 앱을 통해 앱 정보 표시 |
 
-[출처](http://blog.naver.com/horajjan/220893876471)
+<br/>
+
+[참고](http://blog.naver.com/horajjan/220893876471)
 
 ### 2-2 사용
 
