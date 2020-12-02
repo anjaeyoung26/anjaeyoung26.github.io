@@ -45,8 +45,6 @@ UIApplication.sharedApplication.open(url, options:[:], completionHandler:nil)
 | http://maps.apple.com/?q=검색어, http://maps.apple.com/?ll=위도, 경도 | 지도 앱을 통해 지역 표시 |
 | itms://itunes.apple.com/us/app/apple-store/앱 ID | App Store 앱을 통해 앱 정보 표시 |
 
-<br/>
-
 [참고](http://blog.naver.com/horajjan/220893876471)
 
 ### 2-2 사용
