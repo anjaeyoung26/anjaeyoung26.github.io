@@ -94,7 +94,7 @@ analytics:
 # Site Author
 author:
   name             : "anjaeyoung"
-  avatar           : "/assets/images/bio_photo.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/KakaoTalk_Photo_2020-12-10-14-13-08.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Swift, Objective-C"
   location         : "Geumcheon-gu, Seoul"
   email            :
