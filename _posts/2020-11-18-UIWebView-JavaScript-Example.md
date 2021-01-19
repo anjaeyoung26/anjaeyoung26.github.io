@@ -13,7 +13,7 @@ UIWebView를 이용한 Native(iOS) - Web(JavaScript)간 통신하는 예시입�
 
 <br/>
 
-## 1. html 파일 생성
+# 1. html 파일 생성
 
 ~~~css
 <html>
@@ -44,7 +44,7 @@ UIWebView를 이용한 Native(iOS) - Web(JavaScript)간 통신하는 예시입�
 
 <br/>
 
-## 2. Native -> Web
+# 2. Native -> Web
 
 작성한 html 파일을 웹 뷰에 load 합니다.
 
@@ -59,11 +59,11 @@ NSURLRequest * urlRequest = [[NSURLRequest alloc] initWithURL:url];
 뷰 추가, Delegate 등과 관련된 작업은 생략했습니다.   
 html 파일을 웹 뷰에 load하면 웹 페이지가 아래와 같이 표시됩니다.
 
-<img src="https://user-images.githubusercontent.com/61190690/99493217-2bc23f00-29b2-11eb-9281-01d4366cf50c.png" width="300" height="600">
+<img src="https://user-images.githubusercontent.com/61190690/99493217-2bc23f00-29b2-11eb-9281-01d4366cf50c.png" width="300" height="600">{: .align-center}
 
 웹 뷰 하단에 버튼을 추가하고, 버튼을 클릭할 시 html 파일에 구현되어 있는 javascriptFunc 메소드가 호출되도록 구현하겠습니다.
 
-<img src="https://user-images.githubusercontent.com/61190690/99493532-b99e2a00-29b2-11eb-9fdb-488f51641842.png" width="300" height="600">
+<img src="https://user-images.githubusercontent.com/61190690/99493532-b99e2a00-29b2-11eb-9fdb-488f51641842.png" width="300" height="600">{: .align-center}
 
 아래와 같이 버튼의 IBAction을 추가합니다.
 
@@ -76,11 +76,11 @@ html 파일을 웹 뷰에 load하면 웹 페이지가 아래와 같이 표시됩
 
 이후 버튼을 클릭하면 html 파일에 구현되어 있는 javascriptFunc 메소드가 호출됩니다.
 
-<img src="https://user-images.githubusercontent.com/61190690/99493721-100b6880-29b3-11eb-92d8-cc8e39b72594.png" width="300" height="600">
+<img src="https://user-images.githubusercontent.com/61190690/99493721-100b6880-29b3-11eb-92d8-cc8e39b72594.png" width="300" height="600">{: .align-center}
 
 <br/>
 
-## 3. Web -> Native
+# 3. Web -> Native
 
 작성된 html 파일의 하단을 보면, 버튼 클릭 시 html 파일에 구현되어 있는 callNativeFunc 메소드가 호출됩니다.
 

@@ -14,7 +14,7 @@ UIWebView 바탕으로 Native(iOS) <-> Web(JavaScript)간의 통신을 하여 �
 
 <br/>
 
-## 1. NSAppTransportSecurity 추가
+# 1. NSAppTransportSecurity 추가
 
 Info.plist에 아래와 같은 값을 추가합니다.
 
@@ -44,7 +44,7 @@ Info.plist에 아래와 같은 값을 추가합니다.
 
 <br/>
 
-## 2. Delegate 채택
+# 2. Delegate 채택
 
 ~~~swift
 @interface ViewController: UIViewController<UIWebViewDelegate>
@@ -52,7 +52,7 @@ Info.plist에 아래와 같은 값을 추가합니다.
 
 <br/>
 
-## 3. Delegate 위임
+# 3. Delegate 위임
 
 ~~~swift
 @property (nonatomic, retain) IBOutlet UIWebView *webView;
@@ -62,7 +62,7 @@ _webView.delegate = self;
 
 <br/>
 
-## 4. 뷰 추가
+# 4. 뷰 추가
 
 웹 뷰를 서브 뷰로 추가합니다. xib 혹은 스토리보드에서도 인터페이스 요소로 제공됩니다.
 
@@ -76,9 +76,11 @@ webView = [[UIWebView alloc] initWithFrame:frame];
 
 <br/>
 
-## 5. 통신
+# 5. 통신
 
-### 5-1 Web -> Native
+<br/>
+
+## 5-1 Web -> Native
 
 아래의 메소드를 통해 Javascript에서 Native를 호출합니다.
 
@@ -114,7 +116,7 @@ function jsFunction() {
 
 <br/>
 
-### 5-2 Native -> Web
+## 5-2 Native -> Web
 
 Javascript 내에 아래와 같은 함수가 구현되어 있습니다.
 
@@ -135,7 +137,7 @@ JavaScript에 구현되어 있는 myFunction 함수를 호출합니다. 괄호�
 
 <br/>
 
-### 5-3 JavaScript 파일 내용
+## 5-3 JavaScript 파일 내용
 
 JavaScript 파일 내용입니다. 웹에 대한 지식이 없어서 구글 검색을 통해 Visual Studio Code로 간단하게 만들었습니다.
 
@@ -168,7 +170,7 @@ JavaScript 파일 내용입니다. 웹에 대한 지식이 없어서 구글 검�
 
 JavaScript에서 alert 하는 경우, 알림창의 제목에 해당 페이지의 주소가 표시됩니다.
 
-![javaalert1](https://user-images.githubusercontent.com/61190690/99223519-fdb0f380-2827-11eb-86c7-047381a57d2a.png)
+![javaalert1](https://user-images.githubusercontent.com/61190690/99223519-fdb0f380-2827-11eb-86c7-047381a57d2a.png){: .align-center}
 
 이를 방지하고자 UIWebView의 카테고리를 생성합니다.
 
@@ -209,7 +211,7 @@ UIAlertView의 Delegate를 위임할 시 사용자가 버튼을 클릭하면 아
 ~~~
 
 
-![javaalert2](https://user-images.githubusercontent.com/61190690/99223522-00134d80-2828-11eb-9760-d6e82ac55ea9.png)
+![javaalert2](https://user-images.githubusercontent.com/61190690/99223522-00134d80-2828-11eb-9760-d6e82ac55ea9.png){: .align-center}
 
 ✴︎ iOS 12에서 UIWebView가 deprecated, WKWebView로 JavaScript와 통신하는 방법은 추후에 포스팅 하겠습니다.
 

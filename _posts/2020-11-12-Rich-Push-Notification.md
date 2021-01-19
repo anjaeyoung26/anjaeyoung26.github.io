@@ -37,7 +37,8 @@ Rich Push Notification은 App Extension의 한 종류로, 별도의 어플리케
 
 # 2. 동작 과정
 
-![richpush](https://user-images.githubusercontent.com/61190690/98899303-ae4e8880-24f2-11eb-9709-bb73dbd01fca.png)   
+![richpush](https://user-images.githubusercontent.com/61190690/98899303-ae4e8880-24f2-11eb-9709-bb73dbd01fca.png){: .align-center}
+ 
 [출처](https://swifting.io/blog/2016/08/22/23-notifications-in-ios-10/)
 
 Provider가 APNs에게 푸시를 요청하고, 전달되기 전에 추가한 App Extension을 거쳐갑니다.

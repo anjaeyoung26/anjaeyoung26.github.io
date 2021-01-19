@@ -55,17 +55,17 @@ APNs의 Payload는 JSON 형태입니다.
 
 aps 딕셔너리는 Apple에서 지정한 항목에 값을 지정하여 푸시에 대한 옵션을 설정합니다. 설정할 수 있는 항목은 아래와 같습니다.
 
-<img width="745" alt="aps1" src="https://user-images.githubusercontent.com/61190690/98885617-b2b87880-24d5-11eb-92f4-553e2abf17e4.png">
+<img width="745" alt="aps1" src="https://user-images.githubusercontent.com/61190690/98885617-b2b87880-24d5-11eb-92f4-553e2abf17e4.png">{: .align-center}
 
 <br/>
 
-i. alert : 알림의 제목, 내용 등 사용자에게 알림을 표시하는 값입니다. alert에 설정할 수 있는 항목은 아래와 같습니다.
+`alert` 알림의 제목, 내용 등 사용자에게 알림을 표시하는 값입니다. alert에 설정할 수 있는 항목은 아래와 같습니다.
 
-<img width="742" alt="aps2" src="https://user-images.githubusercontent.com/61190690/98885821-12af1f00-24d6-11eb-8e6a-e856bad3ed9d.png">
+<img width="742" alt="aps2" src="https://user-images.githubusercontent.com/61190690/98885821-12af1f00-24d6-11eb-8e6a-e856bad3ed9d.png">{: .align-center}
 
-ii. sound, badge 등 기타 항목들은 설명에 잘 나와있습니다.
+`sound, badge` 등 기타 항목들은 설명에 잘 나와있습니다.
 
-iii. 실제로 사용하는 페이로드의 형태는 아래와 같습니다.
+실제로 사용하는 페이로드의 형태는 아래와 같습니다.
 
 ~~~
 {
@@ -80,7 +80,7 @@ iii. 실제로 사용하는 페이로드의 형태는 아래와 같습니다.
 }
 ~~~
 
-loc-key 와 loc-args는 프로젝트의 Localizable.strings 파일의 loc-key에 해당하는 키 값을 찾아서, 해당 키의 value에 있는 가변 문자열 값을 loc-args로 대체합니다. 만약 Localizable.string에 아래와 같이 정의되어 있다면,
+`loc-key 와 loc-args` 프로젝트의 Localizable.strings 파일의 loc-key에 해당하는 키 값을 찾아서, 해당 키의 value에 있는 가변 문자열 값을 loc-args로 대체합니다. 만약 Localizable.string에 아래와 같이 정의되어 있다면,
 
 ~~~
 "LOCALIZED KEY" = "%@ and %@";
@@ -88,7 +88,7 @@ loc-key 와 loc-args는 프로젝트의 Localizable.strings 파일의 loc-key에
 
 가변 문자열이 loc-args의 값으로 대체되어 "ARGS1 and ARGS2" 라는 문자열이 완성됩니다.
 
-custom은 푸시를 수신한 곳에서 사용할 수 있는 사용자 정의 데이터 입니다. custom 이라는 이름은 임의의 값으로 정해진 형식이 아닙니다.
+`custom` 푸시를 수신한 곳에서 사용할 수 있는 사용자 정의 데이터 입니다. 이름은 임의의 값으로 정해진 형식이 아닙니다.
 
 ~~~swift
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
@@ -102,18 +102,11 @@ custom은 푸시를 수신한 곳에서 사용할 수 있는 사용자 정의 �
 
 위와 같이 푸시를 수신했을 때 호출되는 메소드를 통해 전달된 사용자 정의 데이터를 추출할 수 있습니다.
 
-iv. content-available를 통해 `Silent Push`를 사용할 수 있습니다.
+`content-available`를 통해 `Silent Push`를 사용할 수 있습니다.
 
 사용자에게 알리지 않고, 어플리케이션을 백 그라운드 상태에서 깨워서 application:didReceiveRemoteNotification:fetchCompletionHandler를 호출하여 콘텐츠 다운로드 등을 수행합니다.
 
 Silent Push를 사용하기 위해서는 Payload의 aps에 alert, sound, badge가 포함되지 않아야 합니다.
-만약 포함될 경우, 비정상적으로 처리됩니다.
-
-최대 30초의 작업 시간이 주어지며, 작업을 마친 후 Handler가 제 시간 내에 호출되지 않으면 어플리케이션이 일시 중지 됩니다. [참고](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app?language=objc)
-
-<br/>
-
+만약 포함될 경우, 비정상적으로 처리됩니다. 최대 30초의 작업 시간이 주어지며, 작업을 마친 후 Handler가 제 시간 내에 호출되지 않으면 어플리케이션이 일시 중지 됩니다. [참고](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app?language=objc)   
 이외에도 Actionable Notification을 구현하기 위해 category를 담을 수 있지만, 관련된 내용은 추후에 포스팅 하겠습니다.
-
-끝
 

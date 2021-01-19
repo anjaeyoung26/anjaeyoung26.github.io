@@ -23,7 +23,7 @@ UIWebView와의 차이점은 아래와 같습니다.
 
 <br/>
 
-## 1. NSAppTransportSecurity 추가
+# 1. NSAppTransportSecurity 추가
 
 Info.plist에 아래와 같은 값을 추가합니다.
 
@@ -53,15 +53,15 @@ Info.plist에 아래와 같은 값을 추가합니다.
 
 <br/>
 
-## 2. Framework 추가
+# 2. Framework 추가
 
-![wkwebkit](https://user-images.githubusercontent.com/61190690/99464989-b720dd80-297c-11eb-95ec-75594e395baf.png)
+![wkwebkit](https://user-images.githubusercontent.com/61190690/99464989-b720dd80-297c-11eb-95ec-75594e395baf.png){: .align-center}
 
 위와 같이 [Build Phases] - [Link Binary With Libraries] 에서 검색하여 프레임워크를 추가합니다.
 
 <br/>
 
-## 3. Import
+# 3. Import
 
 ~~~swift
 #import <WebKit/WebKit.h>
@@ -69,7 +69,7 @@ Info.plist에 아래와 같은 값을 추가합니다.
 
 <br/>
 
-## 4. Delegate 채택
+# 4. Delegate 채택
 
 ~~~swift
 @interface ViewController: UIViewController<WKUIDelegate, WKNavigationDelegate, WKScriptMessageHandler>
@@ -81,7 +81,7 @@ Info.plist에 아래와 같은 값을 추가합니다.
 
 <br/>
 
-## 5. Delegate 위임
+# 5. Delegate 위임
 
 ~~~swift
 @property (nonatomic, strong) WKWebVIew * wkWebView;
@@ -99,7 +99,7 @@ WKUserContentController * contentController = [[WKUserContentController alloc] i
 
 <br/>
 
-## 6. 뷰 추가
+# 6. 뷰 추가
 
 스토리보드 혹은 xib 파일에 컨테이너 뷰를 추가한 뒤, 컨테이너 뷰의 프레임에 맞춰서 웹 뷰를 추가합니다. 본인이 주로 사용하는 방식입니다.
 
@@ -115,9 +115,11 @@ self.webView = [[WKWebView alloc] initWithFrame:frame configuration:config];
 
 <br/>
 
-## 7. 통신
+# 7. 통신
 
-### 7-1 Web -> Native
+<br/>
+
+## 7-1 Web -> Native
 
 아래의 메소드를 통해 Javascript에서 Native를 호출합니다.   
  WKUserContentController 에서 설정한 메시지 핸들러를 통해서 호출합니다.
@@ -163,7 +165,7 @@ Native에서는 딕셔너리 형태로 형변환하여 사용합니다.
 
 <br/>
 
-### 7-2 Native -> Web
+## 7-2 Native -> Web
 
 JavaScript 내에 아래와 같은 함수가 구현되어 있습니다.
 
@@ -183,7 +185,7 @@ function myFunction(firstMsg, secondMsg) {
 
 <br/>
 
-### 7-3 JavaScript 파일 내용
+## 7-3 JavaScript 파일 내용
 
 JavaScript 파일 내용입니다. 웹에 대한 지식이 없어서 구글 검색을 통해 Visual Studio Code로 간단하게 만들었습니다.
 
@@ -212,7 +214,7 @@ JavaScript 파일 내용입니다. 웹에 대한 지식이 없어서 구글 검�
 
 <br/>
 
-## 8. Script 삽입
+# 8. Script 삽입
 
 WKWebView에는 UIWebView와 차별화된 최상단 혹은 최하단에 스크립트를 삽입하는 기능이 있습니다.
 
@@ -231,7 +233,7 @@ WKUserScript * script = [[WKUserScript alloc] initWithSource:@"alert('load')"
 
 <br/>
 
-## 9. 웹 뷰 내에서 Alert 커스터마이징
+# 9. 웹 뷰 내에서 Alert 커스터마이징
 
 UIWebView와 마찬가지로 WKWebView 에서도 Alert, Confirm 화면을 아래의 두 메소드를 통해 커스터마이징할 수 있습니다.
 

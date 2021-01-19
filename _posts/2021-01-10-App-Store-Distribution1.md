@@ -13,14 +13,14 @@ toc_label: "목차"
 
 <br/>
 
-## 1. App ID
+# 1. App ID
 
 https://developer.apple.com/account/resources/identifiers/list 에서 App ID를 등록합니다.   
 App ID는 프로젝트의 Bundle Identifier 입니다.
 
 <br/>
 
-## 2. App Store Connect
+# 2. App Store Connect
 
 App Store Connect란 Apple Developer Program 회원에게 어플리케이션 제출 및 관리, TestFlight를 통한 테스트 등의 작업을 도와주는 웹 기반 도구 모음 입니다.
 
@@ -31,9 +31,11 @@ App Store에 제출하기 위해 App Store Connect에 `이름`, `기본 언어`,
 
 <br/>
 
-## 3. Manual
+# 3. Manual
 
-### 3-1 CSR
+<br/>
+
+## 3-1 CSR
 
 CSR 이란 Certificate Signing Request(인증서 서명 요청)으로, 인증서 발급을 위해 필요한 정보를 담고있는 인증서 신청 형식의 데이터 입니다. CSR 파일 생성 시 공개 키와 개인 키가 함께 생성되며, CSR 데이터에는 공개 키의 정보가 포함되어 있습니다.
 
@@ -48,7 +50,7 @@ CSR 이란 Certificate Signing Request(인증서 서명 요청)으로, 인증서
 
 <br/>
 
-### 3-2 Certificate
+## 3-2 Certificate
 
 생성한 CSR을 이용하여 https://developer.apple.com/account/resources/certificates/list 에서 개발 및 배포 인증서를 생성합니다.
 
@@ -61,7 +63,7 @@ CSR 이란 Certificate Signing Request(인증서 서명 요청)으로, 인증서
 
 <br/>
 
-### 3-3 Provisioning Profile
+## 3-3 Provisioning Profile
 
 Provisioning Profile이란 iOS 디바이스와 인증서를 연결하여 디바이스에 해당 어플리케이션이 설치 및 실행될 수 있도록 합니다.
 
@@ -71,13 +73,13 @@ Provisioning Profile이란 iOS 디바이스와 인증서를 연결하여 디바�
 
 <br/>
 
-### 3-4 적용
+## 3-4 적용
 
 Xcode 프로젝트 - [Signing & Capabilities] - [Signing] 에서 `Automatically manage signing`의 체크를 해제하면 Debug(개발), Release(배포) 시 Provisioning Profile과 인증서를 이전 과정에서 다운로드 받은 파일로 직접 설정할 수 있습니다.
 
 <br/>
 
-## 4. Automatic
+# 4. Automatic
 
 Xcode 8.0 부터 App ID, Certificate, Provisioning Profile을 자동으로 생성해주는 Automatically manage signing 기능이 추가됐습니다. 
 
@@ -86,17 +88,15 @@ Xcode 8.0 부터 App ID, Certificate, Provisioning Profile을 자동으로 생�
 
 <br/>
 
-## 5. Archive
+# 5. Archive
 
-아카이브란 .app 및 App Store에 제출하는데 필요한 정보를 포함하는 디렉토리(.xarchive)를 생성하는 과정입니다.   
-App Store 배포에서는 .ipa 파일을 생성하여 App Store Connect에 해당 빌드 버전을 업로드하는 과정입니다.
+아카이브란 .app 및 App Store에 제출하는데 필요한 정보를 포함하는 디렉토리(.xarchive)를 생성하는 과정 혹은 App Store 배포에서는 .ipa 파일을 생성하여 App Store Connect에 해당 빌드 버전을 업로드하는 과정을 의미합니다.
 
 Xcode 상단 바 - [Product] - [Archive]를 클릭해서 아카이브를 진행합니다.
 
-`참고` Archive가 비활성화 상태라면, 시뮬레이터를 변경한 뒤 진행합니다.
+> Archive가 비활성화 상태라면, 시뮬레이터를 변경한 뒤 진행합니다.
 
-Archive가 완료되면 Organizer가 표시되고, 방금 아카이브가 완료된 정보가 표시됩니다.   
-Distribute App을 클릭하여 배포를 진행합니다.
+Archive가 완료되면 Organizer가 표시되고, 방금 아카이브가 완료된 정보가 표시됩니다. Distribute App을 클릭하여 배포를 진행합니다.
 
 ![arc2](https://user-images.githubusercontent.com/61190690/104119749-0e3ba100-5375-11eb-9aa7-417134f801a2.png)
 
@@ -116,6 +116,8 @@ App Store Connect를 선택한 뒤 Next를 클릭합니다.
 App Store Connect에 현재 빌드 버전을 업로드 합니다.
 
 ![arc9](https://user-images.githubusercontent.com/61190690/104121398-45b04a80-5381-11eb-824e-1747565b91d4.png)
+
+
 ![arc10](https://user-images.githubusercontent.com/61190690/104121402-4812a480-5381-11eb-87e6-a59fa2b04e06.png)
 
 20~30분 후에 App Store Connect에서 업로드된 빌드 버전을 확인할 수 있습니다.

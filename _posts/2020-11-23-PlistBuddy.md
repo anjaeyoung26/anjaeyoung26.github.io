@@ -13,7 +13,7 @@ PlistBuddy란 무엇이고, 이를 통해 빌드업 자동화를 할 수 있는 
 
 <br/>
 
-## 1. PlistBuddy 란?
+# 1. PlistBuddy 란?
 
 Shell Script로 작성하여 Property list(plist) 파일을 편집할 수 있도록 해주는 Mac OS 내장 프로그램 입니다.
 
@@ -23,11 +23,13 @@ PlistBuddy에는 Edit Mode, Direct Mode 두 가지 모드가 있습니다.
 
 <br/>
 
-## 2. Edit Mode
+# 2. Edit Mode
 
 편집 모드로 진입해서 명령어를 입력하고, 해당 명령어들을 적용하려면 저장을 합니다.
 
-### 2-1 진입
+<br/>
+
+## 2-1 진입
 
 plist 파일의 위치를 입력하여 접근합니다.
 
@@ -35,20 +37,26 @@ plist 파일의 위치를 입력하여 접근합니다.
 /usr/libexec/PlistBuddy <file>
 ~~~
 
-### 2-2 명령어 입력
+<br/>
+
+## 2-2 명령어 입력
 
 ~~~
 Command: Add :Test integer 1
 Command: Add :Test2 string "TEST"
 ~~~
 
-### 2-3 명령어 저장
+<br/>
+
+## 2-3 명령어 저장
 
 ~~~
 Command: Save
 ~~~
 
-### 2-4 끝내기
+<br/>
+
+## 2-4 끝내기
 
 ~~~
 Command: Exit
@@ -56,7 +64,7 @@ Command: Exit
 
 <br/>
 
-## 3. Direct Mode
+# 3. Direct Mode
 
 다이렉트 모드는 진입과 동시에 명령어를 입력하여 실행합니다.
 
@@ -68,7 +76,7 @@ Edit Mode와는 다르게, 입력한 명령어를 즉시 실행합니다.
 
 <br/>
 
-## 4. 명령어
+# 4. 명령어
 
 Set, Print, Add 등 다수의 명령어가 있습니다.   
 
@@ -82,7 +90,7 @@ Set, Print, Add 등 다수의 명령어가 있습니다.
 
 <br/>
 
-### 4-1 Set
+## 4-1 Set
 
 plist의 key에 값을 설정합니다.   
 명령어가 동작하려면 입력한 key 값이 plist 내에 존재해야 합니다.   
@@ -97,7 +105,7 @@ plist의 key에 값을 설정합니다.
 
 <br/>
 
-### 4-2 Print
+## 4-2 Print
 
 입력한 plist의 key에 해당하는 값을 출력하거나, 변수에 값을 대입할 때 사용합니다.
 
@@ -132,7 +140,7 @@ SRCROOT는 Xcode내에서 사용할 수 있는, 현재 프로젝트가 위치한
 
 <br/>
 
-### 4-3 Add
+## 4-3 Add
 
 plist 내에 값을 추가합니다.
 
@@ -142,7 +150,7 @@ plist 내에 값을 추가합니다.
 
 <br/>
 
-### 4-4 Delete
+## 4-4 Delete
 
 plist 내에 값을 제거합니다.
 
@@ -154,7 +162,7 @@ plist 내에 값을 제거합니다.
 
 <br/>
 
-## 5. 빌드업 자동화
+# 5. 빌드업 자동화
 
 Xcode 내에서는 Build, Run, Test 등 다양한 상황에 따라 Script를 사용할 수 있도록 제공합니다.
 
