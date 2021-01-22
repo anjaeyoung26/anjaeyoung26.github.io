@@ -1,7 +1,7 @@
 ---
 title : "WKWebView, JavaScript"
 category :
-    - "Web Application"
+    - "Hybrid"
 tag :
     - "WKWebView"
 toc: true

@@ -1,7 +1,7 @@
 ---
 title : "UIWebView, JavaScript example"
 category :
-    - "Web Application"
+    - "Hybrid"
 tag :
     - UIWebView
 toc: true
