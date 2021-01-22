@@ -156,8 +156,6 @@ completionHandler로 Presentation 옵션을 설정하여 화면에 표시합니�
 
 ## 2-3 Background
 
-<br/>
-
 ∙ Silent 푸시를 수신하면 아래와 같은 메소드가 호출됩니다.
 
 ~~~swift

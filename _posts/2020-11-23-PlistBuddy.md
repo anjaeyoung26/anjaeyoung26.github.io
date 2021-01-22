@@ -15,8 +15,7 @@ PlistBuddy란 무엇이고, 이를 통해 빌드업 자동화를 할 수 있는 
 
 # 1. PlistBuddy 란?
 
-Shell Script로 작성하여 Property list(plist) 파일을 편집할 수 있도록 해주는 Mac OS 내장 프로그램 입니다.
-
+Shell Script로 작성하여 Property list(plist) 파일을 편집할 수 있도록 해주는 Mac OS 내장 프로그램 입니다.   
 주로 어플리케이션을 업데이트할 때마다 Build Version을 자동으로 변경하고자 할 때 사용합니다.
 
 PlistBuddy에는 Edit Mode, Direct Mode 두 가지 모드가 있습니다.
