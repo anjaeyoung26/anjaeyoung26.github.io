@@ -106,11 +106,11 @@ NSURLSessionDownloadTask * downloadTask = [[NSURLSession sharedSession] download
         }
 
         if (errReplace) {
-            NSLog(@"Replace file failed with error : %@", [error localizedDescription]);
+            NSLog(@"Replace file failed with error : %@", [errReplace localizedDescription]);
         }
                     
         if (errMove) {
-            NSLog(@"Move file successful in %@", [fileURL absoluteString]);
+            NSLog(@"Move file failed with error : %@", [errMove localizedDescription]);
         }
                     
         decisionHandler(WKNavigationResponsePolicyCancel);
