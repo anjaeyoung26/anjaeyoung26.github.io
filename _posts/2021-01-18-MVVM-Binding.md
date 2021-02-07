@@ -1,5 +1,5 @@
 ---
-title: "MVVM, Binding"
+title: "MVVM, Example"
 categories: 
    - Design Pattern
 tags:
@@ -42,6 +42,8 @@ let viewController = ViewController(viewModel: viewModel)
 ## 1-2 Service provider
 
 뷰 모델에서 여러가지 서비스 계층에 의존성을 가질 때, 위처럼 각 서비스를 초기화 시 주입하는 대신 서비스 provider를 주입하는 방식이 있습니다. 뷰 모델은 서비스 계층에 직접 접근하지 않고, provider를 통해 사용하고자 하는 서비스에 접근합니다.
+
+전수열(devxoul)님의 [RxTodo](https://github.com/devxoul/RxTodo/blob/master/RxTodo/Sources/Services/ServiceProvider.swift)를 참고했습니다.
 
 ~~~swift
 protocol ServiceProviderType: class {
