@@ -11,6 +11,8 @@ toc_label: "목차"
 
 iOS에서 이루어지는 푸시에 대한 과정에 관한 글입니다. 해당 과정들은 모두 `AppDelegate` 내에서 이루어집니다.
 
+보는 사람은 없지만 현재 글은 잘못된 정보가 있으므로 금일 내로 수정하겠습니다.
+
 <br/>
 
 # 1. 등록
@@ -84,7 +86,7 @@ Device Token을 전달받으면 푸시를 수신할 수 있습니다.
 
 어플리케이션이 실행되지 않을 때 호출되는 메소드 입니다.
 
-수신한 푸시를 통해 어플리케이션을 실행한다면, 당연히 최초로 실행될 떄 호출되는 didFinishLaunchingWithOptions 메소드가 호출됩니다.
+수신한 푸시를 통해 어플리케이션을 실행한다면, 최초로 실행될 떄 호출되는 didFinishLaunchingWithOptions 메소드에서 전달받은 푸시에 대한 정보를 얻을 수 있습니다.
 
 ~~~swift
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -98,8 +100,6 @@ Device Token을 전달받으면 푸시를 수신할 수 있습니다.
 ~~~
 
 수신한 푸시에 대한 정보는 launchOptions 딕셔너리의 `UIApplicationLaunchOptionsRemoteNotificationKey` 키 값에 포함되어 전달됩니다.
-
-수신한 푸시를 통해 어플리케이션을 실행한 것이 아닌, 아이콘을 눌러 자체적으로 실행하거나 혹은 Silent 푸시(content-available 를 설정한 푸시를 뜻하며, Background 푸시라고도 한다.)의 경우 호출되는 메소드가 없습니다.
 
 <br/>
 
@@ -125,35 +125,6 @@ completionHandler로 Presentation 옵션을 설정하여 화면에 표시합니�
 
 <br/>
 
-∙ Silent 푸시를 수신하면 아래와 같은 두 개의 메소드가 호출됩니다.
-
-~~~swift
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
-{
-    NSString * customMessage = [notification.request.content.userInfo objectForKey:@"Custom Message"];
-
-    completionHandler(UNNotificationPresentationOptionAlert);
-}
-~~~
-
-~~~swift
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-~~~
-
-수신한 푸시에 대한 정보는 userInfo 딕셔너리에 포함되어 전달됩니다.  
-
-<br/>
-
-∙ 푸시의 배너를 클릭하면 아래와 같은 메소드가 호출됩니다.
-
-~~~swift
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler
-~~~
-
-수신한 푸시에 대한 정보는 response.notification.request.content 에 포함되어 전달됩니다.
-
-<br/>
-
 ## 2-3 Background
 
 ∙ Silent 푸시를 수신하면 아래와 같은 메소드가 호출됩니다.
@@ -171,4 +142,6 @@ completionHandler로 Presentation 옵션을 설정하여 화면에 표시합니�
 ~~~swift
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler
 ~~~
+
+수신한 푸시에 대한 정보는 response.notification.request.content 에 포함되어 전달됩니다.
 
